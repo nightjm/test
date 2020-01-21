@@ -1,0 +1,9 @@
+FROM ubuntu
+
+run apt-get update
+run apt-get install -y nginx
+
+expose 80
+
+onbuild add test.tar /var/www/html/
+cmd ["nginx","-g","daemon off;"]
